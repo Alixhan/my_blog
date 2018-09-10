@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment = "commonHead(title)">
+	<meta charset="UTF-8">
+	<title th:text="${title}">Title</title>
+	<script type="text/javascript" th:src="@{/common/js/jquery-3.3.1.min.js}"></script>
+	<script th:src="@{//vuejs.org/js/vue.min.js}"></script>
+	<link rel="stylesheet" th:href="@{//unpkg.com/iview/dist/styles/iview.css}">
+	<script th:src="@{//unpkg.com/iview/dist/iview.min.js}"></script>
+</head>
+</html>

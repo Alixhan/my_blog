@@ -1,0 +1,46 @@
+server:
+  port: 8888   #端口
+  servlet:
+    context-path: /my_blog   #项目根路径
+  tomcat:
+    uri-encoding: UTF-8  #tomcat编码
+
+spring:
+  devtools:
+    restart: #热编译
+      enabled: true
+      additional-paths: src/main/java
+  messages: #国际化配置
+    basename: config/i18n/messages
+    encoding: UTF-8
+  mvc:
+    view: #mvc视图解析器
+      prefix: /templates
+      suffix: .html
+  thymeleaf: #thymeleaf缓存
+    cache: false
+  datasource: #数据源
+     url: jdbc:mysql://111.231.88.62:3306/my_blog?useUnicode=true&characterEncoding=utf8&useSSL=false
+     username: sunxh
+     password: XHan0121520
+     driver-class-name: com.mysql.jdbc.Driver
+     
+mybatis:
+  mapper-locations: classpath:com/sxh/web/dao/mapper/*.xml
+  type-aliases-package: com.sxh.web.entity
+  configuration-properties:
+     offsetAsPageNum: true
+     rowBoundsWithCount: true
+     reasonable: true
+pagehelper: #分页插件配置
+  autoDialect: true
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+logging:
+  config: classpath:config/loggback.xml
+  level:
+    com:
+      sxh:
+        web:
+          dao: DEBUG #打印mybatis执行SQL

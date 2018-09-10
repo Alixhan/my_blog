@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxh.web.dao.UserDao">
+	<!-- 表名 -->
+	<sql id="table_name"> user </sql>
+	
+	<sql id="column">
+		a.*
+	</sql>
+	
+    <select id="get" parameterType="int" resultType="User">
+       select <include refid="column"/> from <include refid="table_name"/> a where a.id = #{id}
+    </select>
+
+    <insert id="add" keyColumn="id" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        insert into <include refid="table_name"/> 
+        	(name,sex,hobby) 
+       	values
+        	(#{name}, #{sex},#{hobby})
+    </insert>
+    
+    <update id="update">
+    	update <include refid="table_name"/>  set 
+    		name = #{name},
+    		sex = #{sex},
+    		hobby = #{hobby}
+		where id = #{id}
+    </update>
+    
+    <delete id="delete">
+    	delete from <include refid="table_name"/>  where id = #{id}
+    </delete>
+    
+    <select id="findList" parameterType="User" resultType="User">
+    	 select <include refid="column"/> 
+    	 from <include refid="table_name"/> a
+    	 <where>
+			<if test="name !=null and name != ''">
+				AND a.name like '%${name}%'
+			</if>
+			<if test="sex != null and sex != ''">
+				AND a.sex = #{sex}
+			</if>
+		</where>
+    </select>
+</mapper>
