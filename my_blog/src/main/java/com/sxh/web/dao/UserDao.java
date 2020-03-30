@@ -7,7 +7,7 @@ import com.sxh.web.entity.User;
 
 /**
  * @Description UserDao
- * @author 孙小寒
+ * @author sunxiaohan
  * @date 2018-09-08
  */
 @Mapper

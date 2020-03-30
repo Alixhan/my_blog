@@ -10,20 +10,11 @@ spring:
     restart: #热编译
       enabled: true
       additional-paths: src/main/java
-  messages: #国际化配置
-    basename: config/i18n/messages
-    encoding: UTF-8
-  mvc:
-    view: #mvc视图解析器
-      prefix: /templates
-      suffix: .html
-  thymeleaf: #thymeleaf缓存
-    cache: false
   datasource: #数据源
-     url: jdbc:mysql://111.231.88.62:3306/my_blog?useUnicode=true&characterEncoding=utf8&useSSL=false
-     username: sunxh
+     url: jdbc:mysql://49.233.217.228:3306/jzfp-dev?useUnicode=true&characterEncoding=utf8&useSSL=false
+     username: root
      password: XHan0121520
-     driver-class-name: com.mysql.jdbc.Driver
+     driver-class-name: com.mysql.cj.jdbc.Driver
      
 mybatis:
   mapper-locations: classpath:com/sxh/web/dao/mapper/*.xml
